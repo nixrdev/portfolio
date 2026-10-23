@@ -1,19 +1,23 @@
 export const EXPERIENCES = [
   {
     "year": "Feb 2026 - Present",
-    "role": "Software Engineer - AI and backend system (Internship)",
+    "role": "Product Engineer",
     "company": "Figmenta",
-    "location": "Milan, Italy",
-    "description": "Developing multiple agentic features and participating in product development decisions, designing features while working with tradeoffs across the full development cycle end to end spanning database, API, UI, and agentic systems. Currently building Cadence, a content automation platform controllable via Claude and ChatGPT, architected with an MCP layer.",
+    "location": "Milan, Italy (Remote)",
+    "description": "Architected a LangGraph agentic chatbot with 20+ tools, CQRS, HITL workflows, prompt caching, and model routing, reducing LLM inference costs by 40% while maintaining 95%+ task completion.",
+    "highlights": [
+      "Launched a RAG customer support assistant over LLM APIs with Discord escalation and contextual CTAs, cutting manual support resolution time by 60%.",
+      "Built production REST APIs across FastAPI, Node.js, and PostgreSQL microservices for Digital Beauty (digitalbeauty.io), serving 90+ fashion brands with structured logging and monitoring.",
+      "Promoted from SDE Intern to Product Engineer in 6 months (Aug 2026)."
+    ],
     "technologies": [
-      "JavaScript",
-      "TypeScript",
+      "LangGraph",
+      "RAG",
+      "CQRS",
+      "HITL",
+      "FastAPI",
       "Node.js",
-      "Express.js",
-      "React.js",
-      "PostgreSQL",
-      "REST APIs",
-      "Supabase"
+      "PostgreSQL"
     ]
   },
   {

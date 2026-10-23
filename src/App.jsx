@@ -109,11 +109,11 @@ function App() {
 
       <main
         id="main-content"
-        className="relative z-10 mx-auto flex w-full flex-col items-center gap-12 px-4 pb-10 sm:px-6"
+        className="relative z-10 mx-auto flex w-full flex-col items-center gap-8 px-4 pb-10 sm:px-6"
       >
         <nav
           aria-label="Portfolio sections"
-          className="portfolio-section sticky top-0 z-50 flex flex-wrap justify-center gap-x-6 gap-y-2 bg-ink px-2 py-5 text-sm font-black lowercase sm:gap-x-8 sm:text-[15px]"
+          className="portfolio-section sticky top-0 z-50 mb-6 flex flex-wrap justify-center gap-x-6 gap-y-2 bg-ink px-2 py-5 text-sm font-black lowercase sm:mb-8 sm:gap-x-8 sm:text-[15px]"
         >
           <span className="nav-eyes">
             <CursorEyes />
@@ -147,7 +147,7 @@ function App() {
           </button>
         </nav>
 
-        <section id="hero" className="portfolio-section">
+        <section id="hero" className="portfolio-section border-b border-line/40 pb-8">
           <Hero
             profileLinks={[
               {
@@ -180,21 +180,21 @@ function App() {
         </section>
 
         <Suspense fallback={<div className="portfolio-section h-32 animate-pulse rounded-xl bg-paper/5" aria-hidden="true" />}>
-          <section id="contributions" className="portfolio-section border-t-2 border-line pt-10">
+          <section id="contributions" className="portfolio-section border-b border-line/40 pb-8">
             <GitHubContributions />
           </section>
-          <section id="skills" className="portfolio-section border-t-2 border-line pt-10">
+          <section id="skills" className="portfolio-section border-b border-line/40 pb-8">
             <Skills />
           </section>
-          <section id="experience" className="portfolio-section border-t-2 border-line pt-10">
+          <section id="experience" className="portfolio-section border-b border-line/40 pb-8">
             <Experience />
           </section>
-          <section id="projects" className="portfolio-section border-t-2 border-line pt-10">
+          <section id="projects" className="portfolio-section border-b border-line/40 pb-8">
             <Project />
           </section>
         </Suspense>
 
-        <footer className="portfolio-section flex items-center justify-between gap-4 border-t-2 border-line pt-10 text-xs font-bold uppercase tracking-wide">
+        <footer className="portfolio-section flex items-center justify-between gap-4 text-xs font-bold uppercase tracking-wide">
           <span>Designed &amp; built by Nishant Raj</span>
           <span>© {new Date().getFullYear()}</span>
         </footer>

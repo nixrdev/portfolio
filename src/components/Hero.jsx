@@ -25,7 +25,7 @@ const Hero = ({ profileLinks }) => {
   const [copied, setCopied] = useState(false);
 
   return (
-    <div className="w-full space-y-8">
+    <div className="w-full space-y-7">
       <header className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
           <div className="relative">
@@ -89,50 +89,41 @@ const Hero = ({ profileLinks }) => {
         </div>
       </header>
 
-      <div className="grid gap-6 border-t border-line/40 pt-7 md:grid-cols-[minmax(0,1fr)_15rem] md:gap-8">
-        <div className="space-y-4">
-          <h2 className="text-xs font-black uppercase tracking-widest opacity-60">About</h2>
-          <p>
-            i like building stuff that actually ships. AI, backend, UI, whatever
-            solves it really. right now at Figmenta hacking on{" "}
-            <a href="#projects" className="underline decoration-1 underline-offset-4">
-              Cadence
-            </a>
-            , their content automation platform. media pipelines, scheduling,
-            FFmpeg, MCP stuff, kinda the whole messy middle. also built a
-            little support bot that knows when to reply and when to just hand
-            off to a human.
-          </p>
-          <p>
-            linux guy, open source, terminal brain. currently obsessed with
-            making agents less flaky. observability, evals, that sort of thing.
-            no favourite stack. cli, hackathons, weird side projects. curiosity
-            kinda drives everything.
-          </p>
-        </div>
-        <aside className="space-y-4 border-t border-line/30 pt-5 md:border-l md:border-t-0 md:pl-5 md:pt-0">
-          <h2 className="text-xs font-black uppercase tracking-widest opacity-60">Details</h2>
-          <p className="flex items-start gap-2 text-xs font-bold leading-relaxed">
-            <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-red-500" aria-hidden="true" />
-            <span>Based in 🇮🇳 India, available for remote</span>
-          </p>
-          <p className="text-xs font-semibold leading-relaxed opacity-80">
-            coding setup: Cursor sometimes, but I mostly swap between that and
-            opencode + VS Code (with Codex). Terminal: WezTerm. Distro: Ubuntu.
-          </p>
-        </aside>
+      <div className="space-y-4">
+        <p>
+          i like building stuff that actually ships. AI, backend, UI, whatever
+          solves it really. right now at Figmenta hacking on{" "}
+          <a href="#projects" className="underline decoration-1 underline-offset-4">
+            Cadence
+          </a>
+          , their content automation platform. media pipelines, scheduling,
+          FFmpeg, MCP stuff, kinda the whole messy middle. also built a
+          little support bot that knows when to reply and when to just hand
+          off to a human.
+        </p>
+        <p>
+          linux guy, open source, terminal brain. currently obsessed with
+          making agents less flaky. observability, evals, that sort of thing.
+          no favourite stack. cli, hackathons, weird side projects. curiosity
+          kinda drives everything.
+        </p>
+        <p className="flex items-center gap-1.5 text-xs font-bold tracking-wide">
+          <MapPin className="h-3.5 w-3.5 shrink-0 text-red-500" aria-hidden="true" />
+          Based in 🇮🇳 India, available for remote
+        </p>
+        <p className="text-xs font-semibold opacity-80">
+          coding setup: Cursor sometimes, but I mostly swap between that and
+          opencode + VS Code (with Codex). Terminal: WezTerm. Distro: Ubuntu.
+        </p>
       </div>
 
-      <div id="contact" className="grid scroll-mt-16 gap-4 border-y border-line/40 py-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end sm:gap-8">
-        <div>
-          <h2 className="mb-2 text-xs font-black uppercase tracking-widest opacity-60">Let&apos;s talk</h2>
-          <p>
-            Building something? I help turn ideas into full systems with AI
-            integrations, backends, apps, and deployments. If you need a partner
-            who ships end to end, let&apos;s talk.
-          </p>
-        </div>
-        <div className="relative inline-flex items-center gap-2 sm:pb-1">
+      <div id="contact" className="scroll-mt-16 space-y-2">
+        <p>
+          Building something? I help turn ideas into full systems with AI
+          integrations, backends, apps, and deployments. If you need a partner
+          who ships end to end, let&apos;s talk.
+        </p>
+        <div className="relative inline-flex items-center gap-2">
           <motion.a
             href="https://mail.google.com/mail/?view=cm&fs=1&to=nraj02415@gmail.com"
             target="_blank"
