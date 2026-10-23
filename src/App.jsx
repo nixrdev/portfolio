@@ -1,4 +1,5 @@
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
+import { Moon, Sun } from "lucide-react";
 import Hero from "./components/Hero";
 import CursorEyes from "./components/CursorEyes";
 const GitHubContributions = lazy(() => import("./components/GitHubContributions"));
@@ -7,6 +8,25 @@ const Experience = lazy(() => import("./components/Experience"));
 const Project = lazy(() => import("./components/Project"));
 
 function App() {
+  const [theme, setTheme] = useState(() =>
+    document.documentElement.dataset.theme === "light" ? "light" : "dark"
+  );
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = nextTheme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute(
+      "content",
+      nextTheme === "light" ? "#f8f5ed" : "#0a0a0a"
+    );
+    try {
+      localStorage.setItem("portfolio-theme", nextTheme);
+    } catch {
+      // The selected theme still works when storage is unavailable.
+    }
+    setTheme(nextTheme);
+  };
+
   useEffect(() => {
     if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual";
     window.scrollTo(0, 0);
@@ -15,9 +35,9 @@ function App() {
     return () => clearTimeout(t);
   }, []);
 
-  // live paper dot pulse favicon — minimal, matches ink/paper system
+  // Pulse favicon follows the current ink and paper colors.
   useEffect(() => {
-    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+    const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     let raf;
     let link = document.querySelector('link[rel="icon"][type="image/svg+xml"]');
     if (!link) link = document.querySelector('link[rel="icon"]');
@@ -28,27 +48,30 @@ function App() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     const draw = (t) => {
+      const isLight = document.documentElement.dataset.theme === "light";
+      const background = isLight ? "#f8f5ed" : "#0a0a0a";
+      const foreground = isLight ? "#0a0a0a" : "#f3f5f7";
       const pulse = (Math.sin(t / 1000) + 1) / 2; // 0..1 over 2s
       const r = 2.2 + pulse * 2.0;
       const op = 1 - pulse * 0.3;
       const ringR = 3.2 + pulse * 3.3;
       const ringOp = 0.18 * (1 - pulse);
       ctx.clearRect(0, 0, 32, 32);
-      ctx.fillStyle = "#000";
+      ctx.fillStyle = background;
       ctx.beginPath();
       if (ctx.roundRect) ctx.roundRect(0, 0, 32, 32, 7);
       else ctx.rect(0, 0, 32, 32);
       ctx.fill();
-      ctx.strokeStyle = "rgba(243,245,247,0.30)";
+      ctx.strokeStyle = isLight ? "rgba(10,10,10,0.30)" : "rgba(243,245,247,0.30)";
       ctx.lineWidth = 1.5;
       ctx.stroke();
       ctx.globalAlpha = op;
-      ctx.fillStyle = "#f3f5f7";
+      ctx.fillStyle = foreground;
       ctx.beginPath();
       ctx.arc(16, 16, r, 0, Math.PI * 2);
       ctx.fill();
       ctx.globalAlpha = ringOp;
-      ctx.strokeStyle = "#f3f5f7";
+      ctx.strokeStyle = foreground;
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.arc(16, 16, ringR, 0, Math.PI * 2);
@@ -56,6 +79,10 @@ function App() {
       ctx.globalAlpha = 1;
       link.href = canvas.toDataURL("image/png");
     };
+    if (reducedMotion) {
+      draw(0);
+      return;
+    }
     let last = 0;
     const loop = (now) => {
       if (document.hidden) {
@@ -70,7 +97,7 @@ function App() {
     };
     raf = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(raf);
-  }, []);
+  }, [theme]);
   return (
     <>
       <a
@@ -109,6 +136,15 @@ function App() {
           <a className="px-1 py-1 underline decoration-1 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-paper" href="#contact">
             contact
           </a>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            className="inline-flex items-center gap-1.5 rounded-full border border-paper px-2.5 py-1 text-xs font-black lowercase transition-colors hover:bg-paper hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-paper"
+          >
+            {theme === "dark" ? <Sun className="h-3.5 w-3.5" aria-hidden="true" /> : <Moon className="h-3.5 w-3.5" aria-hidden="true" />}
+            {theme === "dark" ? "light" : "dark"}
+          </button>
         </nav>
 
         <section id="hero" className="portfolio-section">
@@ -126,7 +162,7 @@ function App() {
               },
               {
                 label: "GitHub",
-                href: "https://github.com/dawgdevv",
+                href: "https://github.com/nixrdev",
                 description: "Code, open source, and experiments",
               },
               {

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nishant Raj</title>
     <meta
       name="description"
-      content="Nishant Raj (dawgdevv) builds practical products with AI — scalable systems, cloud deployments, and open-source software. Available for projects."
+      content="Nishant Raj (nixrdev) builds practical products with AI — scalable systems, cloud deployments, and open-source software. Available for projects."
     />
     <meta
       name="keywords"
-      content="Nishant Raj, dawgdevv, AI integration, open source, Go, TypeScript, Python, React, Node.js, Linux, freelance developer, India"
+      content="Nishant Raj, nixrdev, AI integration, open source, Go, TypeScript, Python, React, Node.js, Linux, freelance developer, India"
     />
     <meta name="author" content="Nishant Raj" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -18,6 +18,14 @@
     <meta name="bingbot" content="index, follow" />
     <meta name="theme-color" content="#000000" />
     <meta name="color-scheme" content="dark light" />
+    <script>
+      try {
+        if (localStorage.getItem("portfolio-theme") === "light") {
+          document.documentElement.dataset.theme = "light";
+          document.querySelector('meta[name="theme-color"]').content = "#f8f5ed";
+        }
+      } catch {}
+    </script>
 
     <link rel="canonical" href="https://dawgdevv.tech/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -70,14 +78,14 @@
             "@type": "Person",
             "@id": "https://dawgdevv.tech/#person",
             "name": "Nishant Raj",
-            "alternateName": ["dawgdevv", "nraj"],
+            "alternateName": ["nixrdev", "nraj"],
             "url": "https://dawgdevv.tech/",
             "image": "https://dawgdevv.tech/og-image.png",
             "jobTitle": "Software Engineer",
             "description": "Open-source contributor and independent thinker building practical products with AI. Experience spans AI integration, backend optimization, cloud deployments, and Linux.",
             "email": "mailto:nraj02415@gmail.com",
             "sameAs": [
-              "https://github.com/dawgdevv",
+              "https://github.com/nixrdev",
               "https://www.linkedin.com/in/nraj24/",
               "https://x.com/sfunish",
               "https://peerlist.io/nishantraj"
@@ -134,7 +142,7 @@
           <a href="mailto:nraj02415@gmail.com">nraj02415@gmail.com</a>.
         </p>
         <ul>
-          <li><a href="https://github.com/dawgdevv">GitHub</a></li>
+          <li><a href="https://github.com/nixrdev">GitHub</a></li>
           <li><a href="https://www.linkedin.com/in/nraj24/">LinkedIn</a></li>
           <li><a href="https://x.com/sfunish">X</a></li>
           <li><a href="https://peerlist.io/nishantraj">Peerlist</a></li>

@@ -77,7 +77,7 @@ export const PROJECTS = [
       "SQLite session logging",
     ],
     liveLink: "",
-    githubLink: "https://github.com/dawgdevv/voxctrl",
+    githubLink: "https://github.com/nixrdev/voxctrl",
     videoLink: "",
   },
   {
@@ -94,7 +94,7 @@ export const PROJECTS = [
       "Observability via OpenTelemetry and SigNoz",
     ],
     liveLink: "",
-    githubLink: "https://github.com/dawgdevv/AI-Powered-Industrial-Anomaly-Detection",
+    githubLink: "https://github.com/nixrdev/AI-Powered-Industrial-Anomaly-Detection",
     videoLink: "",
   },
   {
@@ -120,7 +120,7 @@ export const PROJECTS = [
       "Scalable Go backend structure",
     ],
     liveLink: "https://4-rows-game.vercel.app/",
-    githubLink: "https://github.com/dawgdevv/4_rows_game",
+    githubLink: "https://github.com/nixrdev/4_rows_game",
     videoLink: "",
   },
   {
@@ -146,7 +146,7 @@ export const PROJECTS = [
       "NFT ticketing with digital ownership verification",
     ],
     liveLink: "https://dtix.vercel.app/",
-    githubLink: "https://github.com/dawgdevv/dtix",
+    githubLink: "https://github.com/nixrdev/dtix",
     videoLink: "",
   },
 ];

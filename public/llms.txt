@@ -2,7 +2,7 @@
 
 > Full Stack and Backend Engineer, open-source contributor, and independent thinker who builds practical products with AI.
 
-Nishant Raj (dawgdevv) designs and ships end-to-end systems: AI integrations, backend services, full-stack apps, and cloud deployments. He has worked with startups, freelanced, contributes to open source, and uses Linux daily.
+Nishant Raj (nixrdev) designs and ships end-to-end systems: AI integrations, backend services, full-stack apps, and cloud deployments. He has worked with startups, freelanced, contributes to open source, and uses Linux daily.
 
 ## Contact
 
@@ -12,7 +12,7 @@ Nishant Raj (dawgdevv) designs and ships end-to-end systems: AI integrations, ba
 
 ## Profiles
 
-- GitHub: https://github.com/dawgdevv
+- GitHub: https://github.com/nixrdev
 - LinkedIn: https://www.linkedin.com/in/nraj24/
 - X: https://x.com/sfunish
 - Peerlist: https://peerlist.io/nishantraj

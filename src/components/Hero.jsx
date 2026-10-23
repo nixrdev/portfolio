@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import myphoto from "../assets/myphoto.webp";
 import { FileText, MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
@@ -15,11 +16,8 @@ const ICONS = {
 };
 
 const ICON_COLORS = {
-  Resume: "#38bdf8",
+  Resume: "var(--icon-resume)",
   LinkedIn: "#0A66C2",
-  GitHub: "#f3f5f7",
-  X: "#ffffff",
-  "x.com": "#ffffff",
   Peerlist: "#00AA45",
 };
 
@@ -48,18 +46,18 @@ const Hero = ({ profileLinks }) => {
           </div>
           <div>
             <h1 className="font-signature text-5xl font-normal italic leading-[0.95] tracking-[-0.03em] sm:text-6xl md:text-7xl">
-              <span className="bg-gradient-to-r from-[oklch(88%_0.055_62)] via-[oklch(86%_0.06_55)] to-[oklch(84%_0.065_48)] bg-clip-text text-transparent">hey</span>{" "}
+              <span className="hero-gradient">hey</span>{" "}
               <motion.span
                 aria-hidden="true"
                 initial={{ rotate: 0 }}
                 animate={{ rotate: [0, 18, -10, 18, -6, 12, 0] }}
                 transition={{ duration: 1.3, ease: "easeInOut", delay: 0.5 }}
                 style={{ display: "inline-block", transformOrigin: "70% 70%" }}
-                className="inline-block bg-gradient-to-r from-[oklch(88%_0.055_62)] via-[oklch(86%_0.06_55)] to-[oklch(84%_0.065_48)] bg-clip-text text-[0.62em] leading-none text-transparent [-webkit-text-fill-color:transparent] align-middle"
+                className="hero-gradient inline-block text-[0.62em] leading-none align-middle"
               >
                 👋🏻
               </motion.span>{" "}
-              <span className="bg-gradient-to-r from-[oklch(88%_0.055_62)] via-[oklch(86%_0.06_55)] to-[oklch(84%_0.065_48)] bg-clip-text text-transparent">
+              <span className="hero-gradient">
                 i&apos;m nishant raj
               </span>
             </h1>
@@ -91,45 +89,50 @@ const Hero = ({ profileLinks }) => {
         </div>
       </header>
 
-      <div className="space-y-4">
-        <p>
-          i like building stuff that actually ships. AI, backend, UI, whatever
-          solves it really. right now at Figmenta hacking on{" "}
-          <a href="#projects" className="underline decoration-1 underline-offset-4">
-            Cadence
-          </a>
-          , their content automation platform. media pipelines, scheduling,
-          FFmpeg, MCP stuff, kinda the whole messy middle. also built a
-          little support bot that knows when to reply and when to just hand
-          off to a human.
-        </p>
-        <p>
-          linux guy, open source, terminal brain. currently obsessed with
-          making agents less flaky. observability, evals, that sort of thing.
-          no favourite stack. cli, hackathons, weird side projects. curiosity
-          kinda drives everything.
-        </p>
-        <p className="inline-flex items-center gap-1.5 rounded-full border border-line/30 bg-paper/5 px-3 py-1 text-xs font-bold tracking-wide">
-          <MapPin className="h-3 w-3 shrink-0 text-red-500" aria-hidden="true" />
-          Based in{" "}
-          <span aria-hidden="true" className="text-[13px] leading-none">
-            🇮🇳
-          </span>{" "}
-          India, available for remote
-        </p>
-        <p className="text-xs font-semibold opacity-80">
-          coding setup: Cursor sometimes, but I mostly swap between that and
-          opencode + VS Code (with Codex). Terminal: WezTerm. Distro: Ubuntu.
-        </p>
+      <div className="grid gap-6 border-t border-line/40 pt-7 md:grid-cols-[minmax(0,1fr)_15rem] md:gap-8">
+        <div className="space-y-4">
+          <h2 className="text-xs font-black uppercase tracking-widest opacity-60">About</h2>
+          <p>
+            i like building stuff that actually ships. AI, backend, UI, whatever
+            solves it really. right now at Figmenta hacking on{" "}
+            <a href="#projects" className="underline decoration-1 underline-offset-4">
+              Cadence
+            </a>
+            , their content automation platform. media pipelines, scheduling,
+            FFmpeg, MCP stuff, kinda the whole messy middle. also built a
+            little support bot that knows when to reply and when to just hand
+            off to a human.
+          </p>
+          <p>
+            linux guy, open source, terminal brain. currently obsessed with
+            making agents less flaky. observability, evals, that sort of thing.
+            no favourite stack. cli, hackathons, weird side projects. curiosity
+            kinda drives everything.
+          </p>
+        </div>
+        <aside className="space-y-4 border-t border-line/30 pt-5 md:border-l md:border-t-0 md:pl-5 md:pt-0">
+          <h2 className="text-xs font-black uppercase tracking-widest opacity-60">Details</h2>
+          <p className="flex items-start gap-2 text-xs font-bold leading-relaxed">
+            <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-red-500" aria-hidden="true" />
+            <span>Based in 🇮🇳 India, available for remote</span>
+          </p>
+          <p className="text-xs font-semibold leading-relaxed opacity-80">
+            coding setup: Cursor sometimes, but I mostly swap between that and
+            opencode + VS Code (with Codex). Terminal: WezTerm. Distro: Ubuntu.
+          </p>
+        </aside>
       </div>
 
-      <div id="contact" className="scroll-mt-16">
-        <p className="mt-1">
-          Building something? I help turn ideas into full systems with AI
-          integrations, backends, apps, and deployments. If you need a partner
-          who ships end to end, let&apos;s talk.
-        </p>
-        <div className="relative mt-2 inline-flex items-center gap-2">
+      <div id="contact" className="grid scroll-mt-16 gap-4 border-y border-line/40 py-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end sm:gap-8">
+        <div>
+          <h2 className="mb-2 text-xs font-black uppercase tracking-widest opacity-60">Let&apos;s talk</h2>
+          <p>
+            Building something? I help turn ideas into full systems with AI
+            integrations, backends, apps, and deployments. If you need a partner
+            who ships end to end, let&apos;s talk.
+          </p>
+        </div>
+        <div className="relative inline-flex items-center gap-2 sm:pb-1">
           <motion.a
             href="https://mail.google.com/mail/?view=cm&fs=1&to=nraj02415@gmail.com"
             target="_blank"
@@ -141,7 +144,9 @@ const Hero = ({ profileLinks }) => {
                 setCopied(true);
                 setTimeout(() => setCopied(false), 1400);
                 window.open("https://mail.google.com/mail/?view=cm&fs=1&to=nraj02415@gmail.com", "_blank", "noopener,noreferrer");
-              } catch {}
+              } catch {
+                window.location.href = "mailto:nraj02415@gmail.com";
+              }
             }}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
